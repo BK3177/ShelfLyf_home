@@ -5,7 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key});
 
   String getGreeting() {
     final currentTime = DateTime.now();
@@ -92,7 +93,8 @@ class MyHomePage extends StatelessWidget {
                                     child: TextButton(
                                       onPressed: () {},
                                       style: TextButton.styleFrom(
-                                        padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            8, 0, 0, 0),
                                       ),
                                       child: Container(
                                         width: 53,
@@ -124,7 +126,7 @@ class MyHomePage extends StatelessWidget {
                         child: Text(
                           getGreeting(),
                           style: const TextStyle(
-                            fontSize: 10,
+                            fontSize: 9.4,
                             fontWeight: FontWeight.w600,
                             color: Color(0xffffffff),
                           ),
@@ -138,7 +140,7 @@ class MyHomePage extends StatelessWidget {
                           children: [
                             Positioned(
                               left: -13,
-                              top: 0,
+                              top: -20,
                               child: Align(
                                 child: Container(
                                   margin: EdgeInsets.fromLTRB(22, 0, 0, 0),
@@ -163,11 +165,11 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(0, 0, 8, 49),
+                        margin: const EdgeInsets.fromLTRB(8, 0, 8, 39),
                         child: const Text(
                           'Let’s add your first item',
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 20,
                             fontWeight: FontWeight.w400,
                             color: Color(0xffffffff),
                           ),
@@ -177,8 +179,8 @@ class MyHomePage extends StatelessWidget {
                         quarterTurns: 1,
                         child: Container(
                           margin: EdgeInsets.fromLTRB(0, 0, 14, 0),
-                          width: 60,
-                          height: 56.34,
+                          width: 30,
+                          height: 46.34,
                           child: Image.asset(
                             'assets/images/arrowhome.png',
                             fit: BoxFit.cover,
@@ -188,23 +190,23 @@ class MyHomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-              
               ],
             ),
           ),
         ],
       ),
-      
-    floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your scanner button logic here
-        },
-        child: const Icon(Icons.qr_code_scanner),
-        backgroundColor: Colors.black,
-        elevation: 10.0,
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(bottom: 10.0), // Adjust the value as needed
+        child: FloatingActionButton(
+          onPressed: () {
+            // Add your scanner button logic here
+          },
+          child: const Icon(Icons.qr_code_scanner),
+          backgroundColor: Colors.black,
+          elevation: 35.0,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    
     );
   }
 }
