@@ -17,6 +17,18 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
+  
+  String getGreeting() {
+    final currentTime = DateTime.now();
+    if (currentTime.hour < 12) {
+      return 'Good Morning!';
+    } else if (currentTime.hour < 17) {
+      return 'Good Afternoon!';
+    } else {
+      return 'Good Evening!';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +121,7 @@ class MyHomePage extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.fromLTRB(0, 0, 185, 199),
                         child: const Text(
-                          'Good Afternoon!',
+                          getGreeting(),
                           style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.w700,
